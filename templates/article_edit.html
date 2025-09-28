@@ -1,0 +1,19 @@
+<!-- templates/article_edit.html -->
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="card p-4 shadow-sm">
+    <h2 class="mb-4">Edit Article</h2>
+
+      <form action="" method="post" enctype="multipart/form-data"> <!-- added enctype -->
+
+      {% csrf_token %}
+      {{ form|crispy }}
+      <div class="mt-3">
+        <button type="submit" class="btn btn-dark">Update</button>
+        <a href="{% url 'article_detail' article.pk %}" class="btn btn-secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+{% endblock content %}
